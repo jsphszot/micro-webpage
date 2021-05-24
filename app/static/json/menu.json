@@ -1,0 +1,237 @@
+{
+    "PIZZA":[
+        {
+            "name":"SZOTIANA",
+            "description": "salsa de tomate con ajo, queso mozzarella, salami, cebolla morada y piment&oacute;n.",
+            "price": "$13.000",
+            "available": "Y"                
+        },
+        {
+            "name": "LONGANICILLA - AZUL Y ROJO",
+            "description": "salsa tomate, longanicilla, quesos mozzarella y azul, cebolla morada y albahaca al horno, sal de Cahuil",
+            "price": "$13.000",
+            "available": "Y"                
+        },
+        {
+            "name": "FAT MARTINI", 
+            "description": "carne molida (vacuno), jalape&ntilde;os, ceblla, piment&oacute;n, salsa tomate, queso \"mozz\", s&eacute;samo en bordes, y salsa roquefort (queso azul + yoghurt) fuera del horno", 
+            "price": "$14.000",
+            "available": "Y"                
+        },
+        {
+            "name": "SALAMI", 
+            "description": "salsa de tomate, ajo, queso mozzarella, y ... salami",
+            "price": "$12.000",
+            "available": "Y"                
+        },
+        {
+            "name": "PEPPERONI", 
+            "description": "salsa de tomate, ajo, queso mozzarella, y ... pepperoni",
+            "price": "$12.000",
+            "available": "Y"                
+        },
+        {
+            "name": "PRIETAS CON QUESO AZUL", 
+            "description": "prietas (\"blood sausage\"), queso azul y mozzarella, un toque de merk&eacute;n ",
+            "price": "$13.500",
+            "available": "Y"                
+        },
+        {
+            "name": "TAI MAN&Iacute;-&Aacute;TICO", 
+            "description": "inspiraci&oacute;n tailandesa: salsa de maní + gengibre + ajo + merk&eacute;n + mozzarella + queso azul + longanicilla.",
+            "price": "$14.500",
+            "available": "Y"                
+        },
+        {
+            "name": "JAM&Oacute;N SERRANO", 
+            "description": "queso de cabra + mozzarella al horno, parmiggiano + r&uacute;cula + jamón serrano despu&eacute;s del horno",
+            "price": "$13.500",
+            "available": "Y"                
+        },
+        {
+            "name": "SURTIDO VEGETAL - VEGETARIANA", 
+            "description": "salsa de tomate, tomate fresco y queso mozzarella al horno, seguido por un surtido verde de: r&uacute;cula, rumex, amaranto, albahaca, kale, mizuna roja, mostaza roja, tat-soi, betarraba roja, espinaca, olivas, champi&ntilde;ones (m&aacute;s cosas si hay, menos si no hay - seg&uacute;n temporada).",
+            "price": "$12.500",
+            "available": "Y"                
+        },
+        {
+            "name": "TOMATE - VEGETARIANA", 
+            "description": "tomate fresco, salsa de tomate, quesos azul y mozzarella, albahaca al horno, or&eacute;gano seco.",
+            "price": "$12.000",
+            "available": "Y"                
+        },
+        {
+            "name": "MARGHERITA - VEGETARIANA", 
+            "description": "salsa de tomate, queso mozzarella, sal de Cahuil, un poco de aceite de oliva... y albahaca por supuesto.",
+            "price": "$12.500",
+            "available": "Y"                
+        },
+        {
+            "name": "PIZZA BIANCA - VEGETARIANA", 
+            "description": "quesos mozzarella y azul, ajo, cebolla, albahaca, sal de Cahuil, aceite de oliva, y unas florcitas de la temporada.",
+            "price": "$11.000",
+            "available": "Y"                
+        },
+        {
+            "name": "MARINARA", 
+            "description": "",
+            "price": "$11.000",
+            "available": "Y"                
+        },
+        {
+            "name": "FUGAZZA", 
+            "description": "",
+            "price": "$12.500",
+            "available": "Y"                
+        }
+    ],
+    "BEER":[
+
+        {
+            "name":"NEGRA STOUT", 
+            "description": "nuestra cl&aacute;sica cerveza negra.",
+            "alcohol": "5,8", 
+            "price": "$3.500", 
+            "mls": 470,
+            "available": "Y"
+        },
+        {
+            "name":"AMBER ALE", 
+            "description": "nuestra cl&aacute;sica. Dulzona, pero con el amargor justo.",
+            "alcohol": "5,3", 
+            "price": "$3.500", 
+            "mls": 470,
+            "available": "Y"
+        },
+        {
+            "name":"CHORA MAILAXIA Hazy IPA", 
+            "description": "con l&uacute;pulo Citra CRYO y Columbus en Whirpool, DDH de mucho l&uacute;pulo Citra CRYO, Galaxy y Columbus que generan una explosi&oacute;n jugosa a pi&ntilde;a, maracuy&aacute;, naranja dulce, algo DANK y notas a coco.",
+            "alcohol": "6,5", 
+            "price": "$4.500", 
+            "mls": 420,
+            "available": "Y"
+        },
+        {
+            "name":"DAZEY Hazy DIPA", 
+            "description": "l&uacute;pulos Loral CRYO y Sabro en Whirpool, DDH de muuucho Loral CRYO, Centennial y Sabro que generan una explosi&oacute;n floral, coco, durazno, herbal y c&iacute;trico dulce",
+            "alcohol": "8,15", 
+            "price": "$4.700", 
+            "mls": 420,
+            "available": "N"
+        },
+        {
+            "name":"DADDY DANKY Juicy DIPA", 
+            "description": "con las DANKEST hops in the biz - Simcoe CRYO y galaxy en Whirpool, DDH de muuucho Simcoe CRYO, Vic Secret y Columbus que generan una explosi&oacute;n jugosa a papaya y icky-sticky diesely DANK.", 
+            "alcohol": "7,6", 
+            "price": "$4.700", 
+            "mls": 420,
+            "available": "Y"
+        },
+        {
+            "name":"MANJARSHHH Pastry Imperial Stout", 
+            "description": "con manjar (dulce de leche) al hervor. Dulce pero elegante.",
+            "alcohol": "10,0",
+            "price": "$4.500", 
+            "mls": 420,
+            "available": "N"
+        },
+        {
+            "name":"TURBIOCHELA", 
+            "description": "l&uacute;pulo Citra CRYO y Colombus, y en dry-hopping lleva 20gr/Lt totales de Citra CRYO, Mosaic y Columbus, que generan una explosi&oacute;n jugosa a mango, naranja dulce, resina de pino, y un retrogusto en boca a mango y durazno jugoso.",
+            "alcohol": "6,5", 
+            "price": "$4.000", 
+            "mls": 420,
+            "available": "Y"
+        },
+        {
+            "name":"GOLDMUNDO Saison", 
+            "description": "con una pizca de l&uacute;pulo Citra CRYO, c&aacute;scara de lim&oacute;n rallada, semilla de cilantro y hojas de cedr&oacute;n; maltas pale ale y trigo.",
+            "alcohol": "5,0", 
+            "price": "$4.000", 
+            "mls": 420,
+            "available": "N"
+        },
+        {
+            "name":"CALIFORNIQUEISHON Juicy West Coast IPA", 
+            "description": "con l&uacute;pulos Mosaic y Columbus en Whirpol, Cascade y Mosaic en dry-hopping; resaltan notas a pomelo dulce, naranja, durazno, mango y hop-spice. Es m&aacute;s liviana en boca, lo que genera una alt&iacute;sima tomabilidad.",
+            "alcohol": "6,3", 
+            "price": "$4.500", 
+            "mls": 420,
+            "available": "Y"
+        },
+        {
+            "name":"SISMO", 
+            "description": "nuestra cl&aacute;sica \"Barley Wine\" de m&aacute;s 9&#176; ABV y con 80 IBU de amargor para equilibrar su tremendo dulzor. &#161;Medallas de ORO en Australia, Chile y Brasil!",
+            "alcohol": "9,0", 
+            "price": "$4.500", 
+            "mls": 420,
+            "available": "Y"
+        },
+        {
+            "name":"SLURPI III Imperial Kettle Sour", 
+            "description": "con pi&ntilde;a, maracuy&aacute; y coco.",
+            "alcohol": "7,5", 
+            "price": "$4.500", 
+            "mls": 420,
+            "available": "N"
+        },
+        {
+            "name":"SLURPI II Imperial Kettle Sour", 
+            "description": "con Frambuesa, Maracuy&aacute; y Frutilla.",
+            "alcohol": "9,0", 
+            "price": "$4.500", 
+            "mls": 420,
+            "available": "N"
+        },
+        {
+            "name":"YUSI MANDARINA", 
+            "description": "en lata de 470ml.",
+            "alcohol": "5,3", 
+            "price": "$3.500", 
+            "mls": 470,
+            "available": "N"
+        },
+        {
+            "name":"ZE BLACK MAMBA", 
+            "description": "Fruited Kettle-Sour Pastry Stout. Lleva lactosa, nibs de cacao y cacao espa&ntilde;ol, frutillas de Leyda (valle vecino), y helado de vainilla.",
+            "alcohol": "4,5", 
+            "price": "$4.500", 
+            "mls": 420,
+            "available": "Y"
+        },
+        {
+            "name":"CARE'GALLO", 
+            "description": "Imperial Hazy Saison de 7,5&#176;G.L. con una pizca de l&uacute;pulo Colombus, mermelada de c&aacute;scara de naranja y fermentación espont&aacute;nea.", 
+            "alcohol": "7,5",
+            "price": "$4.500", 
+            "mls": 420,
+            "available": "Y"
+        },
+        {
+            "name":"HUELE A VOSSQUE", 
+            "description": "vos que te... Triple Dry-Hopped Juicy West Coast IPA. Chinook CRYO, Simcoe & Columbus, y TDH con 25gr/lt totales de Chinook CRYO y Simcoe y levadura Kviek.",
+            "alcohol": "6,0", 
+            "price": "$4.500", 
+            "mls": 420,
+            "available": "Y"
+        },
+        {
+            "name":"JACKIE ONASSIS", 
+            "description": "mezcla de una cerveza \"vieja\" (SISMO) con una \"joven\" (IPA)",
+            "alcohol": "",
+            "price": "$4.500", 
+            "mls": 420,
+            "available": "Y"
+        },
+        {
+            "name":"FLIGHT / VUELO de Cervezas", 
+            "description": "surtido de cinco shops de la barra en vasos de muestra (tu eliges las variedades).",
+            "alcohol": "",
+            "price": "$10.000", 
+            "mls": "",
+            "available": "Y"
+        }
+
+    ]
+
+}

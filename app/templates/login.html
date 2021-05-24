@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <h1>{{ rv.title }}</h1>
+    <br>
+    <form action="" method="post" novalidate>
+        {{ rv.form.hidden_tag() }}
+        <p>
+            {{ rv.form.username.label }}<br>
+            {{ rv.form.username(size=32) }}
+            {% for error in rv.form.username.errors %}
+            <br>
+            <span class="form-error" >[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <br>
+        <p>
+            {{ rv.form.password.label }}<br>
+            {{ rv.form.password(size=32) }}
+            {% for error in rv.form.password.errors %}
+            <br>
+            <span class="form-error" >[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <br>
+        <p>{{ rv.form.remember_me() }} {{ rv.form.remember_me.label }}</p>
+        <p>{{ rv.form.submit() }}</p>
+    </form>
+
+{% endblock %}

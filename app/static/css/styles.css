@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+/* settings for whole webpage --------------------- */
+* {
+    /* font-family: 'Special Elite', Arial,Verdana; */
+    font-family: "Rubik", Arial, Verdana;
+    
+    /* remove default margins and padding */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+}
+body {
+    /* background-image: url('../images/background.JPG'); */
+    background: repeating-linear-gradient(0deg, rgb(98, 160, 216, 0.80) , rgb(255, 110, 199, 0.80) 50vh, rgb(98, 160, 216, 0.80) 100vh);
+}
+
+/* #inbody {
+    background: repeating-linear-gradient(0deg, rgb(98, 160, 216, 0.80) , rgb(255, 110, 199, 0.80) 50vh, rgb(98, 160, 216, 0.80) 100vh);
+    background: repeating-linear-gradient(35deg, rgb(98, 160, 216, 0.80) , rgba(46, 141, 224, 0.8) 50vh, rgb(98, 160, 216, 0.80) 100vh);
+} */
+
+
+/* I.i NAVBAR / HEADERS --------------------- */
+.selected-menu {
+    font-weight: bold;
+}
+/* i. not needed yet, add again someday */
+#nav-bar {
+    width: 100%;
+    background-color: #1b1e2f;
+    /* background-color: #214357e3; */
+    font-size: 2.5vh;
+}
+#nav-bar a {
+    text-decoration:none;
+    color: rgb(235, 228, 228);
+}
+/* i. list items added from json in eof js */
+.menu-li {
+    width: 100%;
+    height: 100%;
+    list-style-type:none;
+    padding: 1vh 2vh;
+}
+.menu-li:hover {
+    background-color: #7e8d94;
+}
+#nav-bar ul {
+    margin: auto;
+    padding: 0;
+    /* height: 100%; */
+    /* max-width: 70%; */
+    display: flex;
+    text-align: center;
+}
+/* i. changes using js */
+#menu-button {
+    display: none;
+}
+/* i.Divs around Nav --------------------- */
+#tienda-nav {
+    background-color: #FF6EC7;
+    width: 100%;
+    min-height: 10vh;
+
+    text-align: center; /* center text */
+
+    /* center using flexbox */
+        /* center vertically */
+            display: flex; 
+            align-items: center;
+        /* center horizontally */
+            justify-content: center; 
+        
+    /* z-index: 100; */
+    /* position: fixed; */
+        
+}
+#tienda-nav p {
+    color: #291717;
+    padding: 2px 10px;
+    margin: 0;
+    font-size: 2.5vh;
+
+
+}
+
+#bodyexnav {
+    position: relative;
+}
+/* SZOT Map --------------------- */
+#szot-map {
+
+    margin: auto;
+    padding: 5vh 0;
+
+    width: 70vw;
+    height: 50vh;
+
+}
+#szot-map iframe {
+    /* display: none; */
+    border:none;
+    width:100%;
+    height:100%;
+}
+
+
+/* links --------------------- */
+.wp-link {
+    text-decoration:none;
+    color: black;
+    display: block;
+}
+.bolded {
+    font-weight: bold;
+}
+.pinked {
+    /* padding: 3px 2px 0 2px; */
+    padding: 0px 2px;
+    color: rgb(248, 141, 141);
+    background-color: #000000;
+}
+.pinkeded {
+    color: rgb(248, 141, 141);
+    background-color: #000000bd;
+}
+
+
+
+
+/* Big Screens */
+@media only screen and (min-width: 1100px) {
+    .hide-br {
+        display: none !important;
+    }
+
+    #szot-map {
+
+        margin: auto;
+        padding: 5vh 0;
+    
+        width: 50vw;
+        height: 60vh;
+    
+    }
+
+}
+
+/* Small Screens */
+@media only screen and (max-width: 1100px) {
+    #nav-bar ul {
+        display: block;
+    }
+
+    .menu-li {
+        width: 100%;
+        margin: 0;
+        display: none;
+        padding: 5vh 0;
+    }
+    #nav-bar a {
+        display: block;
+    }
+    #menu-button {
+        display: block;
+        padding: 15px;
+        background-color: #745daa;
+        /* background-color: #AFE0FF; */
+        border: none;
+        outline: none;
+        cursor: pointer;
+        align-self: flex-start; /*put button to left*/
+    }
+    #hero-image {
+        max-height: 90vh;
+        max-width: 90vw;
+    }    
+}
+
+/* even smaller screens */
+@media only screen and (max-width: 400px){
+    #tienda-nav {
+        min-height: 20vh;
+        font-size: 3.5vh;
+    }
+}
+
+
+/* II. Main Body --------------------- */
+
+#mainbod {
+    text-align: center; /* center text */
+}
+
+.bodycontent {
+    min-height: 95vh;
+}
+
+.form-error {
+    color: #ff0000;
+}
+
+
+/* Info Texts --------------------- */
+
+.InfoTexts {
+    padding: 20px;
+    /* background-color: rgb(177, 177, 177, 0.4); */
+    text-align: center;
+    font-family: "Rubik", Arial, Verdana;
+}
+
+/* footer  */
+#footer-image {
+    max-height: 70vh;
+    max-width: 80vw;
+    margin:auto;
+    display:block;
+    padding: 5vh 0;
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+}    
+
+.footed {
+    width: 100%;
+    padding: 5px 0 15px 0;
+    color: rgb(240, 210, 210);
+    font-weight: bold;
+    text-align: center;
+    background-color: hsla(0, 0%, 0%, 0.8);
+}
