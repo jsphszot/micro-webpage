@@ -1,0 +1,31 @@
+<div id="headers">
+
+    <nav id='nav-bar'>
+        <button id="menu-button">☰</button>
+        <ul id="nav-ul">
+            <li class='menu-li'>
+                <a href="{{ url_for('index') }}">Home</a>
+            </li>
+            <li class='menu-li'>
+                <a href="{{ url_for('beers') }}">Beer</a>
+            </li>
+            <li class='menu-li'>
+                <a href="{{ url_for('menu') }}">Brewpub</a>
+            </li>
+            <li class='menu-li'>
+                <a href="{{ url_for('dondeEstamos') }}">Dónde Estamos</a>
+            </li>
+            <li class='menu-li'>
+                <a href="https://tienda.szot.cl/" target="_blank">TIENDA</a>
+            </li>
+            {% if current_user.is_anonymous %} {# true when not logged in #}
+            {# nothing #}
+            {% else %}
+                <li class='menu-li'>
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+
+</div>

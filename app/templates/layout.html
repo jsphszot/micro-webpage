@@ -3,10 +3,6 @@
 <html lang="en">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- force page to reload / ignore cookies -->
-<!-- https://www.lifewire.com/force-page-load-from-server-3466696 -->
-<!-- <meta http-equiv=“Expires” content=”-1″> -->
-
 <head>
     <!-- css stylesheet -->
     <link href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet">    
@@ -24,82 +20,43 @@
 
     <div id="inbody">
 
-    <div id="headers">
+        {% include 'navbar.html'%}
 
-        <!-- NAVBAR -->
-        <nav id='nav-bar'>
-            <button id="menu-button">☰</button>
-            <ul id="nav-ul">
-                <li class='menu-li'>
-                    <a href="{{ url_for('index') }}">Home</a>
-                </li>
-                <li class='menu-li'>
-                    <a href="{{ url_for('beers') }}">Beer</a>
-                </li>
-                <li class='menu-li'>
-                    <a href="{{ url_for('menu') }}">Brewpub</a>
-                </li>
-                <li class='menu-li'>
-                    <a href="{{ url_for('dondeEstamos') }}">Dónde Estamos</a>
-                </li>
-                <li class='menu-li'>
-                    <a href="https://tienda.szot.cl/" target="_blank">TIENDA</a>
-                </li>
-                {% if current_user.is_anonymous %} {# true when not logged in #}
-                {# nothing #}
-                {% else %}
-                    <li class='menu-li'>
-                        <a href="{{ url_for('logout') }}">Logout</a>
-                    </li>
+        <div id="mainbod">
+
+            <div class="bodycontent">
+
+                
+                <!-- e-store link -->
+                <div>
+                    <a id="tienda-nav" class="wp-link bolded" href="https://tienda.szot.cl" target="_blank">
+                        IR A TIENDA ONLINE
+                        <!-- <br class="hide-br"> -->
+                    </a>
+                </div>
+                
+                {# show flash messages #}
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <br>
+                <ul>
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
                 {% endif %}
-            </ul>
-        </nav>
-  
-    </div>
-
-    <div id="mainbod">
-
-        <div class="bodycontent">
-
-            
-            <!-- e-store link -->
-            <div>
-                <a id="tienda-nav" class="wp-link bolded" href="https://tienda.szot.cl" target="_blank">
-                    IR A TIENDA ONLINE
-                    <!-- <br class="hide-br"> -->
-                </a>
+                {% endwith %}
+                <br>
+                
+                {# insert 'block' content #}
+                {% block content %}{% endblock %}
+                
             </div>
             
-            {# show flash messages #}
-            {% with messages = get_flashed_messages() %}
-            {% if messages %}
-            <br>
-            <ul>
-                {% for message in messages %}
-                <li>{{ message }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-            {% endwith %}
-            <br>
             
-            {# insert 'block' content #}
-            {% block content %}{% endblock %}
+            {% include 'footer.html'%}
             
         </div>
-        
-        
-        <div class="footed">
-            <img id="footer-image" src="{{ url_for('static', filename='images/LOGOSZOT_hq.png')}}" style="max-height: 20vh; padding: 2vh;" alt="">
-            Cervecer&iacute;a SZOT SpA
-            <br>
-            Balmaceda 20226, Talagante, RM
-            <br><br>
-            -SITIO WEB PARA MAYORES DE 18 A&Ntilde;OS- <br>
-            hecho x SZOT con amor
-        </div>
-        
-    </div>
 
     </div>
 
