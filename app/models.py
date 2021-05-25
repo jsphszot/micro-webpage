@@ -43,3 +43,27 @@ class Post(db.Model):
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
+
+# https://subscription.packtpub.com/book/web_development/9781784393656/7
+# https://pythonbasics.org/flask-mongodb/
+# better use mongo?
+# class Menu(db.Model):
+#     __tablename__ = 'menu'
+
+#     id = db.Column(db.Integer, primary_key=True)
+
+    # BEERS
+        # "name": "NEGRA STOUT",
+        # "description": "nuestra cl&aacute;sica cerveza negra.",
+        # "alcohol": "5,8",
+        # "price": "$3.500",
+        # "mls": 470,
+        # "available": "Y"
+
+    # PIZZAS
+        # "name": "TAI MAN&Iacute;-&Aacute;TICO",
+        # "description": "inspiraci&oacute;n tailandesa: salsa de maní + gengibre + ajo + merk&eacute;n + mozzarella + queso azul + longanicilla.",
+        # "price": "$14.500",
+        # "available": "Y"
+
+    

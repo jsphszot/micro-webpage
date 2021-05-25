@@ -4,6 +4,7 @@ from flask import (
     redirect, 
     url_for, 
     request,
+    make_response,
     )
 from app import app, db
 from app.forms import (
@@ -120,3 +121,10 @@ def user(username):
         user=user,
         posts=posts,
         )
+
+# @app.errorhandler(404)
+# def not_found():
+#     return make_response(
+#         render_template("404.html"), 
+#         404
+#     )
