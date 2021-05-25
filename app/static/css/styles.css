@@ -200,6 +200,7 @@ body {
 
 .bodycontent {
     min-height: 95vh;
+    padding: 0 20px;
 }
 
 .form-error {
@@ -213,7 +214,6 @@ body {
     padding: 20px;
     /* background-color: rgb(177, 177, 177, 0.4); */
     text-align: center;
-    font-family: "Rubik", Arial, Verdana;
 }
 
 /* footer  */
@@ -234,4 +234,7 @@ body {
     font-weight: bold;
     text-align: center;
     background-color: hsla(0, 0%, 0%, 0.8);
+}
+#winelist {
+    list-style: none;
 }

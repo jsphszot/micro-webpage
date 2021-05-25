@@ -1,0 +1,10 @@
+<div id="pizzabox">
+    <h3>- PiZZa -</h3>
+    <br>
+    {% for pizza in pizzas %}
+        {% if pizza.available == 'Y' %}
+            <b class='pinked'>{{ pizza.name | safe }}</b>
+            <b> {{ pizza.description | safe }} <i> {{ pizza.price | safe }} </i> </b>
+            <br><br>
+        {% endif %}
+    {% endfor %}

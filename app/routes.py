@@ -1,9 +1,25 @@
-from flask import render_template, flash, redirect, url_for, request
-from app import app
-from app.forms import LoginForm
-from flask_login import current_user, login_user, logout_user, login_required
+from flask import (
+    render_template, 
+    flash, 
+    redirect, 
+    url_for, 
+    request,
+    )
+from app import app, db
+from app.forms import (
+    LoginForm, 
+    RegistrationForm,
+    )
+from flask_login import (
+    current_user, 
+    login_user, 
+    logout_user, 
+    login_required,
+    )
 from app.models import User
 from werkzeug.urls import url_parse
+
+import json
 
 @app.route('/')
 def index():
@@ -33,7 +49,8 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
-            flash('Invalid username or password')
+            # if user-pwd pair not valid
+            flash('Invalid username or password!')
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
@@ -51,12 +68,15 @@ def logout():
 
 @app.route('/Menu')
 def menu():
-    return render_template('menu.html', title="Menu Brewpub")
-
-@app.route('/Admin/Home')
-@login_required
-def admin():
-    return render_template('admin_home.html', title="SZOT Admin")
+    with app.open_resource('static/json/beers.json') as f:
+        beers = json.load(f)
+    with app.open_resource('static/json/pizzas.json') as f:
+        pizzas = json.load(f)
+    return render_template('menu.html',
+        title="Menu Brewpub",
+        pizzas=pizzas,
+        beers=beers,
+        )
 
 @app.route('/DondeEstamos')
 def dondeEstamos():
@@ -65,3 +85,38 @@ def dondeEstamos():
 @app.route('/Beer')
 def beers():
     return render_template('beers.html', title="Cervezas")
+
+# @app.route('/Register', methods=['GET', 'POST'])
+# def register():
+#     # redirect GET
+#     if current_user.is_authenticated:
+#         return redirect(url_for('index'))
+#     form = RegistrationForm()
+#     # if PUT
+#     if form.validate_on_submit():
+#         user = User(username=form.username.data, email=form.email.data)
+#         user.set_password(form.password.data)
+#         db.session.add(user)
+#         db.session.commit()
+#         flash('Congratulations, you are now a registered user!')
+#         return redirect(url_for('login'))
+#     # else GET
+#     return render_template('register.html', title='Register', form=form)
+
+@app.route('/Admin/Home')
+@login_required
+def admin():
+    return render_template('admin_home.html', title="SZOT Admin")
+
+@app.route('/Admin/Home/<username>')
+@login_required
+def user(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    posts = [
+        {'author': user, 'body': 'Test post #1'},
+        {'author': user, 'body': 'Test post #2'},
+    ]
+    return render_template('user.html',
+        user=user,
+        posts=posts,
+        )

@@ -1,0 +1,24 @@
+<div id="beerbox">
+    <h3>- SCHoP - DrAFT -</h3>
+    <br>
+
+    {% for beer in beers %}
+        {% if beer.available == 'Y' %}
+        
+            <b class='pinked'>{{beer.name | safe}}</b> 
+            <b>{{beer.description | safe}}
+            <i> {{beer.price | safe}}  </i> 
+            {%if beer.mls != "" %}
+                por aprox {{ beer.mls}}ml.
+            {%endif%}
+            {%if beer.alcohol != "" %}
+                {{ beer.alcohol }}&#176;.
+            {%endif%}
+                </b>
+                <br><br>
+            
+        {% endif %}
+    {% endfor %}
+
+    
+</div>

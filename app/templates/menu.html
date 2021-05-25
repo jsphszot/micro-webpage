@@ -1,11 +1,29 @@
-{% extends "layout.html" %}
+{% extends 'layout.html' %}
 
 {% block content %}
 
-    <p>
-        This is the menu
+    <div>
+
+        <hr color=black> <br><br>
+        <h2>CARTA SZOT BREWPUB</h2>
         <br>
-        There is no food.
-    </p>
+        <a class="wp-link bolded" href="https://szot-brewpub.jumpseller.com/">
+
+            Puedes entrar a nuestra pizzer&iacute;a online, luego venir a recogerla. <br>
+            <span class="pinkeded">-PARA VER NUESTRA WEBSTORE DEL BREWPUB-</span> <br>
+        </a>
+        <br>
+        <br>
+
+        <hr color=black> <br>
+        {% include 'snips/pizzabox.html' %}
+        <hr color=black> <br>
+        {% include 'snips/beerbox.html' %}
+        <hr color=black> <br>
+        {% include 'snips/winebox.html' ignore missing %}
+        <hr color=black> <br>
+        {% include 'snips/otrosbox.html' ignore missing %}
+
+    </div>
 
 {% endblock %}

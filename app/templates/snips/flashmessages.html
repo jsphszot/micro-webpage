@@ -1,0 +1,12 @@
+{# show flash messages #}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<br>
+<ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+<br>

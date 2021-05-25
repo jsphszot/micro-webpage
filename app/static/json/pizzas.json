@@ -1,0 +1,86 @@
+[
+    {
+        "name": "SZOTIANA",
+        "description": "salsa de tomate con ajo, queso mozzarella, salami, cebolla morada y piment&oacute;n.",
+        "price": "$13.000",
+        "available": "Y"
+    },
+    {
+        "name": "LONGANICILLA - AZUL Y ROJO",
+        "description": "salsa tomate, longanicilla, quesos mozzarella y azul, cebolla morada y albahaca al horno, sal de Cahuil",
+        "price": "$13.000",
+        "available": "Y"
+    },
+    {
+        "name": "FAT MARTINI",
+        "description": "carne molida (vacuno), jalape&ntilde;os, ceblla, piment&oacute;n, salsa tomate, queso \"mozz\", s&eacute;samo en bordes, y salsa roquefort (queso azul + yoghurt) fuera del horno",
+        "price": "$14.000",
+        "available": "Y"
+    },
+    {
+        "name": "SALAMI",
+        "description": "salsa de tomate, ajo, queso mozzarella, y ... salami",
+        "price": "$12.000",
+        "available": "Y"
+    },
+    {
+        "name": "PEPPERONI",
+        "description": "salsa de tomate, ajo, queso mozzarella, y ... pepperoni",
+        "price": "$12.000",
+        "available": "Y"
+    },
+    {
+        "name": "PRIETAS CON QUESO AZUL",
+        "description": "prietas (\"blood sausage\"), queso azul y mozzarella, un toque de merk&eacute;n ",
+        "price": "$13.500",
+        "available": "Y"
+    },
+    {
+        "name": "TAI MAN&Iacute;-&Aacute;TICO",
+        "description": "inspiraci&oacute;n tailandesa: salsa de maní + gengibre + ajo + merk&eacute;n + mozzarella + queso azul + longanicilla.",
+        "price": "$14.500",
+        "available": "Y"
+    },
+    {
+        "name": "JAM&Oacute;N SERRANO",
+        "description": "queso de cabra + mozzarella al horno, parmiggiano + r&uacute;cula + jamón serrano despu&eacute;s del horno",
+        "price": "$13.500",
+        "available": "Y"
+    },
+    {
+        "name": "SURTIDO VEGETAL - VEGETARIANA",
+        "description": "salsa de tomate, tomate fresco y queso mozzarella al horno, seguido por un surtido verde de: r&uacute;cula, rumex, amaranto, albahaca, kale, mizuna roja, mostaza roja, tat-soi, betarraba roja, espinaca, olivas, champi&ntilde;ones (m&aacute;s cosas si hay, menos si no hay - seg&uacute;n temporada).",
+        "price": "$12.500",
+        "available": "Y"
+    },
+    {
+        "name": "TOMATE - VEGETARIANA",
+        "description": "tomate fresco, salsa de tomate, quesos azul y mozzarella, albahaca al horno, or&eacute;gano seco.",
+        "price": "$12.000",
+        "available": "Y"
+    },
+    {
+        "name": "MARGHERITA - VEGETARIANA",
+        "description": "salsa de tomate, queso mozzarella, sal de Cahuil, un poco de aceite de oliva... y albahaca por supuesto.",
+        "price": "$12.500",
+        "available": "Y"
+    },
+    {
+        "name": "PIZZA BIANCA - VEGETARIANA",
+        "description": "quesos mozzarella y azul, ajo, cebolla, albahaca, sal de Cahuil, aceite de oliva, y unas florcitas de la temporada.",
+        "price": "$11.000",
+        "available": "Y"
+    },
+    {
+        "name": "MARINARA",
+        "description": "",
+        "price": "$11.000",
+        "available": "Y"
+    },
+    {
+        "name": "FUGAZZA",
+        "description": "",
+        "price": "$12.500",
+        "available": "Y"
+    }
+]

@@ -20,51 +20,29 @@
 
     <div id="inbody">
 
-        {% include 'navbar.html'%}
+        {% include 'snips/navbar.html'%}
 
+        {# mainbod "disappears" when menu nav is opened #}
         <div id="mainbod">
+
+            {% include 'snips/storelink.html'%}
 
             <div class="bodycontent">
 
                 
-                <!-- e-store link -->
-                <div>
-                    <a id="tienda-nav" class="wp-link bolded" href="https://tienda.szot.cl" target="_blank">
-                        IR A TIENDA ONLINE
-                        <!-- <br class="hide-br"> -->
-                    </a>
-                </div>
+                {% include 'snips/flashmessages.html'%}
                 
-                {# show flash messages #}
-                {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                <br>
-                <ul>
-                    {% for message in messages %}
-                    <li>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
-                {% endwith %}
-                <br>
-                
-                {# insert 'block' content #}
                 {% block content %}{% endblock %}
                 
             </div>
             
-            
-            {% include 'footer.html'%}
-            
         </div>
+        
+        {% include 'snips/footer.html'%}
 
     </div>
 
 </body>
-
-<!-- Other Scripts -->
-<!-- <script src="glitch.js"></script> -->
-<!-- <script src="CANSgossling/imagemerger.js"></script> -->
 
 <script src="{{ url_for('static', filename='js/page_controll.js')}}"></script>
 
