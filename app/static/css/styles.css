@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
-/* settings for whole webpage --------------------- */
+/* #region: settings for whole webpage --------------------- */
 * {
     /* font-family: 'Special Elite', Arial,Verdana; */
     font-family: "Rubik", Arial, Verdana;
@@ -16,7 +16,7 @@ html, body {
 }
 body {
     /* background-image: url('../images/background.JPG'); */
-    background: repeating-linear-gradient(0deg, rgb(98, 160, 216, 0.80) , rgb(255, 110, 199, 0.80) 50vh, rgb(98, 160, 216, 0.80) 100vh);
+    /* background: repeating-linear-gradient(0deg, rgb(98, 160, 216, 0.80) , rgb(255, 110, 199, 0.80) 50vh, rgb(98, 160, 216, 0.80) 100vh); */
 }
 
 /* #inbody {
@@ -24,21 +24,53 @@ body {
     background: repeating-linear-gradient(35deg, rgb(98, 160, 216, 0.80) , rgba(46, 141, 224, 0.8) 50vh, rgb(98, 160, 216, 0.80) 100vh);
 } */
 
+/* #endregion */
 
-/* I.i NAVBAR / HEADERS --------------------- */
+/* #region: color scheme */
+#nav-bar {
+    background-color: #1b1e2f;
+    /* background-color: #4d9cc9e3; */
+}
+#nav-bar a {
+    color: rgb(235, 228, 228);
+}
+.menu-li:hover {
+    background-color: #7e8d94;
+}
+#tienda-nav {
+    background-color: #FF6EC7;
+}
+#tienda-nav p {
+    color: #291717;
+}
+.pinked {
+    color: rgb(248, 141, 141);
+    background-color: #000000;
+}
+.pinkeded {
+    color: rgb(248, 141, 141);
+    background-color: #000000bd;
+}
+.form-error {
+    color: #ff0000;
+}
+.footed {
+    color: rgb(240, 210, 210);
+    background-color: hsla(0, 0%, 0%, 0.8);
+}
+/* #endregion */
+
+/* #region: I.i NAVBAR / HEADERS --------------------- */
 .selected-menu {
     font-weight: bold;
 }
 /* i. not needed yet, add again someday */
 #nav-bar {
     width: 100%;
-    background-color: #1b1e2f;
-    /* background-color: #214357e3; */
     font-size: 2.5vh;
 }
 #nav-bar a {
     text-decoration:none;
-    color: rgb(235, 228, 228);
 }
 /* i. list items added from json in eof js */
 .menu-li {
@@ -46,9 +78,6 @@ body {
     height: 100%;
     list-style-type:none;
     padding: 1vh 2vh;
-}
-.menu-li:hover {
-    background-color: #7e8d94;
 }
 #nav-bar ul {
     margin: auto;
@@ -62,9 +91,11 @@ body {
 #menu-button {
     display: none;
 }
-/* i.Divs around Nav --------------------- */
+
+/* #endregion */
+
+/* #region: i.Divs around Nav --------------------- */
 #tienda-nav {
-    background-color: #FF6EC7;
     width: 100%;
     min-height: 10vh;
 
@@ -82,18 +113,17 @@ body {
         
 }
 #tienda-nav p {
-    color: #291717;
     padding: 2px 10px;
     margin: 0;
     font-size: 2.5vh;
-
-
 }
-
 #bodyexnav {
     position: relative;
 }
-/* SZOT Map --------------------- */
+
+/* #endregion */
+
+/* #region: SZOT Map --------------------- */
 #szot-map {
 
     margin: auto;
@@ -109,9 +139,9 @@ body {
     width:100%;
     height:100%;
 }
+/* #endregion */
 
-
-/* links --------------------- */
+/* #region: links --------------------- */
 .wp-link {
     text-decoration:none;
     color: black;
@@ -123,18 +153,16 @@ body {
 .pinked {
     /* padding: 3px 2px 0 2px; */
     padding: 0px 2px;
-    color: rgb(248, 141, 141);
-    background-color: #000000;
+
 }
 .pinkeded {
-    color: rgb(248, 141, 141);
-    background-color: #000000bd;
+    padding: 0;
 }
 
+/* #endregion */
 
 
-
-/* Big Screens */
+/* #region: Big Screens */
 @media only screen and (min-width: 1100px) {
     .hide-br {
         display: none !important;
@@ -152,7 +180,9 @@ body {
 
 }
 
-/* Small Screens */
+/* #endregion */
+
+/* #region: Small Screens */
 @media only screen and (max-width: 1100px) {
     #nav-bar ul {
         display: block;
@@ -182,17 +212,18 @@ body {
         max-width: 90vw;
     }    
 }
+/* #endregion */
 
-/* even smaller screens */
+/* #region: even smaller screens */
 @media only screen and (max-width: 400px){
     #tienda-nav {
         min-height: 20vh;
         font-size: 3.5vh;
     }
 }
+/* #endregion */
 
-
-/* II. Main Body --------------------- */
+/* #region: II. Main Body --------------------- */
 
 #mainbod {
     text-align: center; /* center text */
@@ -203,12 +234,10 @@ body {
     padding: 0 20px;
 }
 
-.form-error {
-    color: #ff0000;
-}
+/* #endregion */
 
 
-/* Info Texts --------------------- */
+/* #region: Info Texts --------------------- */
 
 .InfoTexts {
     padding: 20px;
@@ -230,10 +259,8 @@ body {
 .footed {
     width: 100%;
     padding: 5px 0 15px 0;
-    color: rgb(240, 210, 210);
     font-weight: bold;
     text-align: center;
-    background-color: hsla(0, 0%, 0%, 0.8);
 }
 #winelist {
     list-style: none;
