@@ -5,7 +5,7 @@
     {% for beer in beers %}
         {% if beer.available == 'Y' %}
         
-            <b class='pinked'>{{beer.name | safe}}</b> 
+            <b class='colored-menu'>{{beer.name | safe}}</b> 
             <b>{{beer.description | safe}}
             <i> {{beer.price | safe}}  </i> 
             {%if beer.mls != "" %}

@@ -1,9 +1,13 @@
+/* #region: import fonts */
+
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@400&display=swap');
+/* #endregion */
 
 /* #region: settings for whole webpage --------------------- */
 * {
-    /* font-family: 'Special Elite', Arial,Verdana; */
-    font-family: "Rubik", Arial, Verdana;
+
+    font-family: "Hind", "Rubik", Arial, Verdana;
     
     /* remove default margins and padding */
     margin: 0;
@@ -14,10 +18,6 @@ html, body {
     height: 100%;
     width: 100%;
 }
-body {
-    /* background-image: url('../images/background.JPG'); */
-    /* background: repeating-linear-gradient(0deg, rgb(98, 160, 216, 0.80) , rgb(255, 110, 199, 0.80) 50vh, rgb(98, 160, 216, 0.80) 100vh); */
-}
 
 /* #inbody {
     background: repeating-linear-gradient(0deg, rgb(98, 160, 216, 0.80) , rgb(255, 110, 199, 0.80) 50vh, rgb(98, 160, 216, 0.80) 100vh);
@@ -27,21 +27,29 @@ body {
 /* #endregion */
 
 /* #region: color scheme */
+body {
+    background: repeating-linear-gradient(0deg, rgb(98, 160, 216, 0.80) , rgb(255, 110, 199, 0.80) 50vh, rgb(98, 160, 216, 0.80) 100vh);
+}
 #nav-bar {
-    background-color: #1b1e2f;
-    /* background-color: #4d9cc9e3; */
+    background-color: rgb(255, 110, 199);
 }
 #nav-bar a {
     color: rgb(235, 228, 228);
+    color: rgb(41, 39, 39);
 }
 .menu-li:hover {
     background-color: #7e8d94;
+    background-color: rgb(149, 204, 229);
 }
 #tienda-nav {
     background-color: #FF6EC7;
 }
 #tienda-nav p {
     color: #291717;
+}
+.colored-menu {
+    color: rgba(248, 237, 141, 0.856);
+    background-color: #000000;
 }
 .pinked {
     color: rgb(248, 141, 141);
@@ -55,8 +63,9 @@ body {
     color: #ff0000;
 }
 .footed {
-    color: rgb(240, 210, 210);
-    background-color: hsla(0, 0%, 0%, 0.8);
+    color: rgb(194, 149, 149);
+    background-color: hsla(0, 0%, 0%, 0.877);
+    /* background-color: hsla(133, 60%, 3%, 0.8); */
 }
 /* #endregion */
 
@@ -64,10 +73,16 @@ body {
 .selected-menu {
     font-weight: bold;
 }
-/* i. not needed yet, add again someday */
+
 #nav-bar {
     width: 100%;
     font-size: 2.5vh;
+    font-weight: bold;
+}
+#menu-button {
+    display: none; /* i. changes using js */
+    /* min-height: 8vh;
+    min-width: 8vh; */
 }
 #nav-bar a {
     text-decoration:none;
@@ -87,10 +102,7 @@ body {
     display: flex;
     text-align: center;
 }
-/* i. changes using js */
-#menu-button {
-    display: none;
-}
+
 
 /* #endregion */
 
@@ -150,13 +162,17 @@ body {
 .bolded {
     font-weight: bold;
 }
+.colored-menu {
+    padding: 0px 4px;
+}
 .pinked {
-    /* padding: 3px 2px 0 2px; */
-    padding: 0px 2px;
-
+    padding: 0px 4px;
+}
+.blueed {
+    padding: 0px 4px;
 }
 .pinkeded {
-    padding: 0;
+    padding: 0px 4px;
 }
 
 /* #endregion */
@@ -184,6 +200,10 @@ body {
 
 /* #region: Small Screens */
 @media only screen and (max-width: 1100px) {
+    #nav-bar {
+        font-size: 3.5vh;
+        background: rgb(255, 110, 199, 0.411);
+    }
     #nav-bar ul {
         display: block;
     }
@@ -199,7 +219,9 @@ body {
     }
     #menu-button {
         display: block;
-        padding: 15px;
+        min-width: 55px;
+        min-height: 55px;
+        /* padding: 15px; */
         background-color: #745daa;
         /* background-color: #AFE0FF; */
         border: none;
@@ -215,10 +237,14 @@ body {
 /* #endregion */
 
 /* #region: even smaller screens */
-@media only screen and (max-width: 400px){
+@media only screen and (max-width: 500px){
     #tienda-nav {
         min-height: 20vh;
         font-size: 3.5vh;
+    }
+    #menu-button {
+        min-width: 70px;
+        min-height: 70px;
     }
 }
 /* #endregion */

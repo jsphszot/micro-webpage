@@ -1,3 +1,5 @@
+{# https://jinja.palletsprojects.com/en/3.0.x/templates/ #}
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -20,17 +22,19 @@
 
     <div id="inbody">
 
-        {% include 'snips/navbar.html'%}
+        {% include 'snips/_navbar.html'%}
 
         {# mainbod "disappears" when menu nav is opened #}
         <div id="mainbod">
-
-            {% include 'snips/storelink.html'%}
+            
+            {#
+                {% include 'snips/_storelink.html'%}
+            #}
 
             <div class="bodycontent">
 
                 
-                {% include 'snips/flashmessages.html'%}
+                {% include 'snips/_flashmessages.html'%}
                 
                 {% block content %}{% endblock %}
                 
@@ -38,7 +42,7 @@
             
         </div>
         
-        {% include 'snips/footer.html'%}
+        {% include 'snips/_footer.html'%}
 
     </div>
 

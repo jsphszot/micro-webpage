@@ -2,6 +2,7 @@
 
 {% block content %}
 
+{#
     {% if not current_user.is_authenticated %}
     <h1>Hi, Stranger!</h1>
     {% else %}
@@ -10,5 +11,6 @@
     {% for post in rv.posts %}
     <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
     {% endfor %}
+#}
 
 {% endblock %}

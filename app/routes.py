@@ -22,6 +22,14 @@ from werkzeug.urls import url_parse
 
 import json
 
+from datetime import datetime
+@app.before_request
+def before_request():
+    if current_user.is_authenticated:
+        current_user.last_seen = datetime.utcnow()
+        db.session.commit()
+
+
 @app.route('/')
 def index():
     posts = [
@@ -87,29 +95,31 @@ def dondeEstamos():
 def beers():
     return render_template('beers.html', title="Cervezas")
 
-# @app.route('/Register', methods=['GET', 'POST'])
-# def register():
-#     # redirect GET
-#     if current_user.is_authenticated:
-#         return redirect(url_for('index'))
-#     form = RegistrationForm()
-#     # if PUT
-#     if form.validate_on_submit():
-#         user = User(username=form.username.data, email=form.email.data)
-#         user.set_password(form.password.data)
-#         db.session.add(user)
-#         db.session.commit()
-#         flash('Congratulations, you are now a registered user!')
-#         return redirect(url_for('login'))
-#     # else GET
-#     return render_template('register.html', title='Register', form=form)
+# redirected to beers
+@app.route('/Register', methods=['GET', 'POST'])
+def register():
+    # # redirect GET
+    # if current_user.is_authenticated:
+    #     return redirect(url_for('index'))
+    # form = RegistrationForm()
+    # # if PUT
+    # if form.validate_on_submit():
+    #     user = User(username=form.username.data, email=form.email.data)
+    #     user.set_password(form.password.data)
+    #     db.session.add(user)
+    #     db.session.commit()
+    #     flash('Congratulations, you are now a registered user!')
+    #     return redirect(url_for('login'))
+    # # else GET
+    # return render_template('register.html', title='Register', form=form)
+    return redirect(url_for("beers"))
 
 @app.route('/Admin/Home')
 @login_required
 def admin():
     return render_template('admin_home.html', title="SZOT Admin")
 
-@app.route('/Admin/Home/<username>')
+@app.route('/Admin/Home/user:<username>')
 @login_required
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
