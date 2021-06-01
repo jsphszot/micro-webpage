@@ -102,6 +102,11 @@ body {
     display: flex;
     text-align: center;
 }
+.menu-item {
+    max-width: 75vw;
+    margin: auto;
+    text-align: center;
+}
 
 
 /* #endregion */

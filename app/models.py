@@ -1,6 +1,9 @@
 from app import db, login
 from datetime import datetime
-from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.security import (
+    generate_password_hash, 
+    check_password_hash,
+    )
 from flask_login import UserMixin
 
 class User(UserMixin, db.Model):
@@ -47,10 +50,31 @@ def load_user(id):
 # https://subscription.packtpub.com/book/web_development/9781784393656/7
 # https://pythonbasics.org/flask-mongodb/
 # better use mongo?
-# class Menu(db.Model):
-#     __tablename__ = 'menu'
+class Beers(db.Model):
+    __tablename__ = 'beers'
 
-#     id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
+    product = db.Column(db.String(64), index=True, unique=True)
+    description = db.Column(db.String(300))
+    alcohol = db.Column(db.Float)
+    mls = db.Column(db.Integer)
+    price = db.Column(db.Integer)
+    available = db.Column(db.Boolean)
+
+    def __repr__(self):
+        return f'<Beers {self.product}'
+
+class Pizzas(db.Model):
+    __tablename__ = 'pizzas'
+
+    id = db.Column(db.Integer, primary_key=True)
+    product = db.Column(db.String(64), index=True, unique=True)
+    description = db.Column(db.String(300))
+    price = db.Column(db.Integer)
+    available = db.Column(db.Boolean)
+
+    def __repr__(self):
+        return f'<Pizzas {self.product}'
 
     # BEERS
         # "name": "NEGRA STOUT",

@@ -17,7 +17,7 @@ from flask_login import (
     logout_user, 
     login_required,
     )
-from app.models import User
+from app.models import User, Pizzas, Beers
 from werkzeug.urls import url_parse
 
 import json
@@ -77,10 +77,15 @@ def logout():
 
 @app.route('/Menu')
 def menu():
-    with app.open_resource('static/json/beers.json') as f:
-        beers = json.load(f)
-    with app.open_resource('static/json/pizzas.json') as f:
-        pizzas = json.load(f)
+    # with app.open_resource('static/json/beers.json') as f:
+    #     beers = json.load(f)
+    # with app.open_resource('static/json/pizzas.json') as f:
+    #     pizzas = json.load(f)
+    # pizzas = Pizzas.query.filter_by(available=True).all()
+    # beers = Beers.query.filter_by(available=True).all()
+    pizzas = Pizzas.query.all()
+    beers = Beers.query.all()
+
     return render_template('menu.html',
         title="Menu Brewpub",
         pizzas=pizzas,

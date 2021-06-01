@@ -2,9 +2,11 @@
     <h3>- PiZZa -</h3>
     <br>
     {% for pizza in pizzas %}
-        {% if pizza.available == 'Y' %}
-            <b class='colored-menu'>{{ pizza.name | safe }}</b>
+        {% if pizza.available %}
+        <div class='menu-item'>
+            <b class='colored-menu'>{{ pizza.product | safe }}</b>
             <b> {{ pizza.description | safe }} <i> {{ pizza.price | safe }} </i> </b>
             <br><br>
+        </div>
         {% endif %}
     {% endfor %}

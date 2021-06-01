@@ -3,19 +3,20 @@
     <br>
 
     {% for beer in beers %}
-        {% if beer.available == 'Y' %}
-        
-            <b class='colored-menu'>{{beer.name | safe}}</b> 
+        {% if beer.available %}
+        <div class='menu-item'>
+            <b class='colored-menu'>{{beer.product | safe}}</b> 
             <b>{{beer.description | safe}}
-            <i> {{beer.price | safe}}  </i> 
-            {%if beer.mls != "" %}
+                <i> {{beer.price | safe}}  </i> 
+                {%if beer.mls != "" %}
                 por aprox {{ beer.mls}}ml.
-            {%endif%}
-            {%if beer.alcohol != "" %}
+                {%endif%}
+                {%if beer.alcohol != "" %}
                 {{ beer.alcohol }}&#176;.
-            {%endif%}
-                </b>
-                <br><br>
+                {%endif%}
+            </b>
+            <br><br>
+        </div>
             
         {% endif %}
     {% endfor %}
