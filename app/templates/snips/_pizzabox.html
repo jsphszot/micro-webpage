@@ -6,6 +6,15 @@
         <div class='menu-item'>
             <b class='colored-menu'>{{ pizza.product | safe }}</b>
             <b> {{ pizza.description | safe }} <i> {{ "${:,}".format(pizza.price).replace(',', '.') | safe }} </i> </b>
+            
+            {% if current_user.is_anonymous %} {# true when not logged in #}
+            {# nothing #}
+            {% else %}
+
+            
+
+            {% endif %}
+            
             <br><br>
         </div>
         {% endif %}

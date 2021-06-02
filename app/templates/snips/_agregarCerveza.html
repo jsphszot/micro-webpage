@@ -4,6 +4,10 @@
     <p>
         {{  form.product.label }}<br>
         {{  form.product(size=25) }}<br>
+        {% for error in form.product.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        <br>
+    {% endfor %}
 
         {{  form.description.label }}<br>
         {{  form.description(cols=50, rows=4) }}<br>

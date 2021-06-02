@@ -138,19 +138,17 @@ def admin():
 def new_pizza():
     form = NewPizzaForm()
     if form.validate_on_submit():
-        checkPizza = Pizzas.query.filter_by(product=form.product.data).first()
-        if checkPizza is None:
-            newPizza = Pizzas(
-                product = form.product.data,
-                description = form.description.data,
-                price = form.price.data,
-                available = form.available.data,
-            )
-            db.session.add(newPizza)
-            db.session.commit()
-            return render_template('messages.html', message=f"Pizza {form.product.data} has been added")
-    # elif request.method == 'GET':
-        # form
+        # checkPizza = Pizzas.query.filter_by(product=form.product.data).first()
+        # if checkPizza is None:
+        newPizza = Pizzas(
+            product = form.product.data,
+            description = form.description.data,
+            price = form.price.data,
+            available = form.available.data,
+        )
+        db.session.add(newPizza)
+        db.session.commit()
+        return render_template('messages.html', message=f"Pizza {form.product.data} has been added")
     return render_template('agregar_productos.html', form=form, prod='PIZZA')
 
 @app.route('/Admin/AgregarCerveza',  methods=['GET', 'POST'])
@@ -174,3 +172,17 @@ def new_beer():
     # elif request.method == 'GET':
         # form
     return render_template('agregar_productos.html', form=form, prod='BEER')
+
+@app.route('/Admin/EditarMenu',  methods=['GET', 'POST'])
+@login_required
+def edit_menu():
+    pizzas = Pizzas.query.all()
+    beers = Beers.query.all()
+
+    return render_template('menu_edit.html',
+        title="Edit Menu Brewpub",
+        pizzas=pizzas,
+        beers=beers,
+        )
+
+    

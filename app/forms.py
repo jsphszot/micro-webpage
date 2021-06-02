@@ -13,6 +13,7 @@ from wtforms import (
     )
 from wtforms.validators import (
     DataRequired,
+    InputRequired,
     NumberRange,
     Length,
     Email,
@@ -47,28 +48,30 @@ class RegistrationForm(FlaskForm):
             raise ValidationError('Please use a different email address.')
 
 class NewPizzaForm(FlaskForm):
-    product = StringField('Nombre de Pizza', validators=[DataRequired(), Length(min=0, max=Pizzas.len_product)])
+    product = StringField('Nombre de Pizza', validators=[InputRequired(), Length(min=0, max=Pizzas.len_product)])
     description = TextAreaField('Descripción de la Pizza', validators=[DataRequired(), Length(min=0, max=Pizzas.len_description)])
     price = IntegerField('Precio CLP sin separador de miles', validators=[DataRequired(), NumberRange(min=0, message="Debe ser mayor a 0")])
-    available = BooleanField('mark checked if Available')
+    available = BooleanField('marcar como Disponible')
     submit = SubmitField('Crear Pizza')
 
-    def validate_pizzaname(self, product):
+    # validate_[fieldname]
+    # https://wtforms.readthedocs.io/en/3.0.x/forms/#inline-validators
+    def validate_product(self, product):
         # must be unique
-        pizza = Pizzas.query.filter_by(product=product.data).first()
-        if pizza is not None:
+        checkPizza = Pizzas.query.filter_by(product=product.data).first()
+        if checkPizza is not None:
             raise ValidationError('Este nombre de Pizza ya existe - Usa otro.')
 
 class NewBeerForm(FlaskForm):
     product = StringField('Nombre de Cerveza', validators=[DataRequired(), Length(min=0, max=Beers.len_product)])
     description = TextAreaField('Descripción de la Cerveza', validators=[DataRequired(), Length(min=0, max=Beers.len_description)])
-    alcohol = DecimalField('grados de alcohol', validators=[DataRequired(), NumberRange(min=0, message="Debe ser mayor a 0")], places=1)
-    mls = IntegerField('mls, sin separador de miles', validators=[DataRequired(), NumberRange(min=0, message="Debe ser mayor a 0")])
-    price = IntegerField('Precio CLP sin separador de miles', validators=[DataRequired(), NumberRange(min=0, message="Debe ser mayor a 0")])
-    available = BooleanField('mark checked if Available')
+    alcohol = DecimalField('grados de alcohol (usa "." para decimal)', validators=[DataRequired(), NumberRange(min=0, message="Debe ser mayor a 0")], places=1)
+    mls = IntegerField('mls (sin separador de miles)', validators=[DataRequired(), NumberRange(min=0, message="Debe ser mayor a 0")])
+    price = IntegerField('Precio CLP (sin separador de miles)', validators=[DataRequired(), NumberRange(min=0, message="Debe ser mayor a 0")])
+    available = BooleanField('marcar como Disponible')
     submit = SubmitField('Crear Cerveza')
 
-    def validate_beername(self, product):
+    def validate_product(self, product):
         # must be unique
         beer = Beers.query.filter_by(product=product.data).first()
         if beer is not None:

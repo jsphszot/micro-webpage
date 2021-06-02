@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+    <div>
+
+        <hr color=black> <br><br>
+        <h2>Editor CARTA SZOT BREWPUB</h2>
+        <br><br>
+
+        <hr color=black> <br>
+        {% include 'snips/_pizzabox.html' %}
+        <hr color=black> <br>
+        {% include 'snips/_beerbox.html' %}
+        <hr color=black> <br>
+        {% include 'snips/_winebox.html' ignore missing %}
+        <hr color=black> <br>
+        {% include 'snips/_otrosbox.html' ignore missing %}
+        <br>
+
+    </div>
+
+{% endblock %}
