@@ -10,6 +10,8 @@ from app import app, db
 from app.forms import (
     LoginForm, 
     RegistrationForm,
+    NewBeerForm,
+    NewPizzaForm,
     )
 from flask_login import (
     current_user, 
@@ -49,7 +51,7 @@ def index():
     
     return render_template('index.html', rv=render_vals)
     
-@app.route('/Admin', methods=['GET', 'POST'])
+@app.route('/Login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('admin'))
@@ -119,23 +121,10 @@ def register():
     # return render_template('register.html', title='Register', form=form)
     return redirect(url_for("beers"))
 
-@app.route('/Admin/Home')
+@app.route('/Admin')
 @login_required
 def admin():
     return render_template('admin_home.html', title="SZOT Admin")
-
-@app.route('/Admin/Home/user:<username>')
-@login_required
-def user(username):
-    user = User.query.filter_by(username=username).first_or_404()
-    posts = [
-        {'author': user, 'body': 'Test post #1'},
-        {'author': user, 'body': 'Test post #2'},
-    ]
-    return render_template('user.html',
-        user=user,
-        posts=posts,
-        )
 
 # @app.errorhandler(404)
 # def not_found():
@@ -143,3 +132,45 @@ def user(username):
 #         render_template("404.html"), 
 #         404
 #     )
+
+@app.route('/Admin/AgregarPizza',  methods=['GET', 'POST'])
+@login_required
+def new_pizza():
+    form = NewPizzaForm()
+    if form.validate_on_submit():
+        checkPizza = Pizzas.query.filter_by(product=form.product.data).first()
+        if checkPizza is None:
+            newPizza = Pizzas(
+                product = form.product.data,
+                description = form.description.data,
+                price = form.price.data,
+                available = form.available.data,
+            )
+            db.session.add(newPizza)
+            db.session.commit()
+            return render_template('messages.html', message=f"Pizza {form.product.data} has been added")
+    # elif request.method == 'GET':
+        # form
+    return render_template('agregar_productos.html', form=form, prod='PIZZA')
+
+@app.route('/Admin/AgregarCerveza',  methods=['GET', 'POST'])
+@login_required
+def new_beer():
+    form = NewBeerForm()
+    if form.validate_on_submit():
+        checkBeer = Beers.query.filter_by(product=form.product.data).first()
+        if checkBeer is None:
+            newBeer = Beers(
+                product = form.product.data,
+                description = form.description.data,
+                alcohol = form.alcohol.data,
+                mls = form.mls.data,
+                price = form.price.data,
+                available = form.available.data,
+            )
+            db.session.add(newBeer)
+            db.session.commit()
+            return render_template('messages.html', message=f"Beer {form.product.data} has been added")
+    # elif request.method == 'GET':
+        # form
+    return render_template('agregar_productos.html', form=form, prod='BEER')

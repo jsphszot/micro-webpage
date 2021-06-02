@@ -7,12 +7,12 @@
         <div class='menu-item'>
             <b class='colored-menu'>{{beer.product | safe}}</b> 
             <b>{{beer.description | safe}}
-                <i> {{beer.price | safe}}  </i> 
+                <i> {{"${:,}".format(beer.price).replace(',', '.') | safe}}  </i> 
                 {%if beer.mls != "" %}
                 por aprox {{ beer.mls}}ml.
                 {%endif%}
                 {%if beer.alcohol != "" %}
-                {{ beer.alcohol }}&#176;.
+                {{ "{:,}".format(beer.alcohol).replace('.', ',') | safe }}&#176;.
                 {%endif%}
             </b>
             <br><br>

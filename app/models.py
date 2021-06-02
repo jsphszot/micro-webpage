@@ -53,19 +53,25 @@ def load_user(id):
 class Beers(db.Model):
     __tablename__ = 'beers'
 
+    len_description = 300
+    len_product = 64
+
     id = db.Column(db.Integer, primary_key=True)
-    product = db.Column(db.String(64), index=True, unique=True)
-    description = db.Column(db.String(300))
+    product = db.Column(db.String(len_product), index=True, unique=True)
+    description = db.Column(db.String(len_description))
     alcohol = db.Column(db.Float)
     mls = db.Column(db.Integer)
     price = db.Column(db.Integer)
     available = db.Column(db.Boolean)
 
     def __repr__(self):
-        return f'<Beers {self.product}'
+        return f'<Beers {self.product}>'
 
 class Pizzas(db.Model):
     __tablename__ = 'pizzas'
+
+    len_description = 300
+    len_product = 64
 
     id = db.Column(db.Integer, primary_key=True)
     product = db.Column(db.String(64), index=True, unique=True)
@@ -74,7 +80,7 @@ class Pizzas(db.Model):
     available = db.Column(db.Boolean)
 
     def __repr__(self):
-        return f'<Pizzas {self.product}'
+        return f'<Pizzas {self.product}>'
 
     # BEERS
         # "name": "NEGRA STOUT",

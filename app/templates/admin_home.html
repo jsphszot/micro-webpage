@@ -5,4 +5,8 @@
     <h1>Hi, {{ current_user.username }}!</h1>
     <p>Welcome to the Admin homepage</p>
 
+    <p>
+        {% include 'snips/_admin_links.html' %}
+    </p>
+
 {% endblock %}

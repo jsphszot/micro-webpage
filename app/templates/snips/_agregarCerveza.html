@@ -1,0 +1,27 @@
+<h1>Agregar Cerveza</h1>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{  form.product.label }}<br>
+        {{  form.product(size=25) }}<br>
+
+        {{  form.description.label }}<br>
+        {{  form.description(cols=50, rows=4) }}<br>
+
+        {{  form.alcohol.label }}<br>
+        {{  form.alcohol(size=25) }}<br>
+        
+        {{  form.mls.label }}<br>
+        {{  form.mls(size=25) }}<br>
+
+        {{  form.price.label }}<br>
+        {{  form.price(size=25) }}<br>
+        <br>
+        {{  form.available() }}
+        {{  form.available.label }}
+        <br>
+        <br>
+    </p>
+    <p>
+        {{  form.submit() }}<br>
+    </p>

@@ -5,7 +5,7 @@
         {% if pizza.available %}
         <div class='menu-item'>
             <b class='colored-menu'>{{ pizza.product | safe }}</b>
-            <b> {{ pizza.description | safe }} <i> {{ pizza.price | safe }} </i> </b>
+            <b> {{ pizza.description | safe }} <i> {{ "${:,}".format(pizza.price).replace(',', '.') | safe }} </i> </b>
             <br><br>
         </div>
         {% endif %}
