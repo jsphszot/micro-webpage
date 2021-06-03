@@ -12,6 +12,7 @@ from app.forms import (
     RegistrationForm,
     NewBeerForm,
     NewPizzaForm,
+    EditProductForm,
     )
 from flask_login import (
     current_user, 
@@ -185,4 +186,29 @@ def edit_menu():
         beers=beers,
         )
 
-    
+@app.route('/Admin/EditarMenu/pizza/<product>', methods=['GET', 'POST'])
+@login_required
+def edit_pizza(product):
+    pizza = Pizzas.query.filter_by(product=product).first_or_404()
+    form = EditProductForm()
+    # if get
+    if form.validate_on_submit():
+        pizza.product = form.product.data
+        # newPizza = Pizzas(
+        #     product = form.product.data,
+        #     description = form.description.data,
+        #     price = form.price.data,
+        #     available = form.available.data,
+        # )
+        # db.session.add(newPizza)
+        db.session.commit()
+        return render_template(
+            'messages.html', 
+            message=f"Pizza name has been changed to {form.product.data}"
+            )
+    # if GET
+    return render_template(
+        "edit_product.html", 
+        product=pizza,
+        form=form
+    )

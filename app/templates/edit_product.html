@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div>
+        <h1>
+            Editando: {{ product.product }}
+        </h1>
+
+        <form action="" method="post">
+
+            {{ form.hidden_tag() }}
+            <br>
+            <br>
+            <b>{{ form.product.label }}:</b> {{ form.product() }}
+            <br>
+            <p>
+                {{  form.submit() }}<br>
+            </p>
+        </form>
+    </div>
+
+{% endblock %}

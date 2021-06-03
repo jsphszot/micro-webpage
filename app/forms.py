@@ -19,6 +19,7 @@ from wtforms.validators import (
     Email,
     EqualTo,
     ValidationError,
+    Optional,
     )
 from app.models import User, Pizzas, Beers
 
@@ -77,3 +78,12 @@ class NewBeerForm(FlaskForm):
         if beer is not None:
             raise ValidationError('Este nombre de Cerveza ya existe - Usa otro.')
 
+class EditProductForm(FlaskForm):
+    ex_nombre = StringField('Nuevo Nombre', validators=[Optional(), Length(min=0, max=Beers.len_product)]) 
+    product = StringField('Nuevo Nombre', validators=[Optional(), Length(min=0, max=Beers.len_product)])
+    # description = TextAreaField('Descripción', validators=[Optional(), Length(min=0, max=Beers.len_description)])
+    # alcohol = DecimalField('grados de alcohol (usa "." para decimal)', validators=[Optional(), NumberRange(min=0, message="Debe ser mayor a 0")], places=1)
+    # mls = IntegerField('mls (sin separador de miles)', validators=[Optional(), NumberRange(min=0, message="Debe ser mayor a 0")])
+    # price = IntegerField('Precio CLP (sin separador de miles)', validators=[Optional(), NumberRange(min=0, message="Debe ser mayor a 0")])
+    # available = BooleanField('marcar como Disponible', validators=[Optional()])
+    submit = SubmitField('Editar')
