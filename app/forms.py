@@ -52,7 +52,7 @@ class NewPizzaForm(FlaskForm):
     product = StringField('Nombre de Pizza', validators=[InputRequired(), Length(min=0, max=Pizzas.len_product)])
     description = TextAreaField('Descripción de la Pizza', validators=[DataRequired(), Length(min=0, max=Pizzas.len_description)])
     price = IntegerField('Precio CLP sin separador de miles', validators=[DataRequired(), NumberRange(min=0, message="Debe ser mayor a 0")])
-    available = BooleanField('marcar como Disponible')
+    available = BooleanField('marcar como Disponible', default=True)
     submit = SubmitField('Crear Pizza')
 
     # validate_[fieldname]
@@ -69,7 +69,7 @@ class NewBeerForm(FlaskForm):
     alcohol = DecimalField('grados de alcohol (usa "." para decimal)', validators=[DataRequired(), NumberRange(min=0, message="Debe ser mayor a 0")], places=1)
     mls = IntegerField('mls (sin separador de miles)', validators=[DataRequired(), NumberRange(min=0, message="Debe ser mayor a 0")])
     price = IntegerField('Precio CLP (sin separador de miles)', validators=[DataRequired(), NumberRange(min=0, message="Debe ser mayor a 0")])
-    available = BooleanField('marcar como Disponible')
+    available = BooleanField('marcar como Disponible', default=True)
     submit = SubmitField('Crear Cerveza')
 
     def validate_product(self, product):
@@ -78,12 +78,30 @@ class NewBeerForm(FlaskForm):
         if beer is not None:
             raise ValidationError('Este nombre de Cerveza ya existe - Usa otro.')
 
-class EditProductForm(FlaskForm):
-    ex_nombre = StringField('Nuevo Nombre', validators=[Optional(), Length(min=0, max=Beers.len_product)]) 
-    product = StringField('Nuevo Nombre', validators=[Optional(), Length(min=0, max=Beers.len_product)])
-    # description = TextAreaField('Descripción', validators=[Optional(), Length(min=0, max=Beers.len_description)])
-    # alcohol = DecimalField('grados de alcohol (usa "." para decimal)', validators=[Optional(), NumberRange(min=0, message="Debe ser mayor a 0")], places=1)
-    # mls = IntegerField('mls (sin separador de miles)', validators=[Optional(), NumberRange(min=0, message="Debe ser mayor a 0")])
-    # price = IntegerField('Precio CLP (sin separador de miles)', validators=[Optional(), NumberRange(min=0, message="Debe ser mayor a 0")])
-    # available = BooleanField('marcar como Disponible', validators=[Optional()])
+class EditBeerForm(FlaskForm):
+    product = StringField('Nuevo Nombre', validators=[Length(min=0, max=Beers.len_product)])
+    description = TextAreaField('Descripción', validators=[Length(min=0, max=Beers.len_description)])
+    alcohol = DecimalField('grados de alcohol (usa "." para decimal)', validators=[NumberRange(min=0, message="Debe ser mayor a 0")], places=1)
+    mls = IntegerField('mls (sin separador de miles)', validators=[NumberRange(min=0, message="Debe ser mayor a 0")])
+    price = IntegerField('Precio CLP (sin separador de miles)', validators=[NumberRange(min=0, message="Debe ser mayor a 0")])
+    available = BooleanField('marcar como Disponible', validators=[Optional()])
     submit = SubmitField('Editar')
+
+    def validate_product(self, product):
+        # must be unique
+        beer = Beers.query.filter_by(product=product.data).first()
+        if beer is not None:
+            raise ValidationError('Este nombre de Cerveza ya existe - Usa otro.')
+
+class EditPizzaForm(FlaskForm):
+    product = StringField('Nuevo Nombre', validators=[Length(min=0, max=Beers.len_product)])
+    description = TextAreaField('Descripción', validators=[Length(min=0, max=Beers.len_description)])
+    price = IntegerField('Precio CLP (sin separador de miles)', validators=[NumberRange(min=0, message="Debe ser mayor a 0")])
+    available = BooleanField('marcar como Disponible', validators=[Optional()])
+    submit = SubmitField('Editar')
+
+    def validate_product(self, product):
+        # must be unique
+        pizza = Pizzas.query.filter_by(product=product.data).first()
+        if pizza is not None:
+            raise ValidationError('Este nombre de Pizza ya existe - Usa otro.')

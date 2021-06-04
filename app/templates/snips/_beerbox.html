@@ -3,7 +3,7 @@
     <br>
 
     {% for beer in beers %}
-        {% if beer.available %}
+        {% if beer.available or not verify  %}
         <div class='menu-item'>
             <b class='colored-menu'>{{beer.product | safe}}</b> 
             <b>{{beer.description | safe}}
@@ -15,6 +15,17 @@
                 {{ "{:,}".format(beer.alcohol).replace('.', ',') | safe }}&#176;.
                 {%endif%}
             </b>
+
+            {% if current_user.is_anonymous %} {# true when not logged in #}
+            {# nothing #}
+            {% else %}
+
+            {{ beer.available | safe }}
+
+            <a href="{{ url_for('edit_beer', product=beer.product) }}">edit</a>
+
+            {% endif %}
+
             <br><br>
         </div>
             

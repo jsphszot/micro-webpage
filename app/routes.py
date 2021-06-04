@@ -12,7 +12,8 @@ from app.forms import (
     RegistrationForm,
     NewBeerForm,
     NewPizzaForm,
-    EditProductForm,
+    EditPizzaForm,
+    EditBeerForm,
     )
 from flask_login import (
     current_user, 
@@ -91,6 +92,7 @@ def menu():
 
     return render_template('menu.html',
         title="Menu Brewpub",
+        verify=True,
         pizzas=pizzas,
         beers=beers,
         )
@@ -182,33 +184,63 @@ def edit_menu():
 
     return render_template('menu_edit.html',
         title="Edit Menu Brewpub",
+        verify=False,
         pizzas=pizzas,
         beers=beers,
         )
+
+def check_if_change(old, new):
+    value = new if (new != old) else old 
+    return value
 
 @app.route('/Admin/EditarMenu/pizza/<product>', methods=['GET', 'POST'])
 @login_required
 def edit_pizza(product):
     pizza = Pizzas.query.filter_by(product=product).first_or_404()
-    form = EditProductForm()
+    # pizza_copy = pizza
+    form = EditPizzaForm()
     # if get
     if form.validate_on_submit():
+
         pizza.product = form.product.data
-        # newPizza = Pizzas(
-        #     product = form.product.data,
-        #     description = form.description.data,
-        #     price = form.price.data,
-        #     available = form.available.data,
-        # )
-        # db.session.add(newPizza)
+        pizza.description = form.description.data
+        pizza.price = form.price.data
+        pizza.available = form.available.data
+
         db.session.commit()
         return render_template(
             'messages.html', 
-            message=f"Pizza name has been changed to {form.product.data}"
+            message=f"Pizza name has been changed to {pizza.product}"
             )
     # if GET
     return render_template(
         "edit_product.html", 
         product=pizza,
+        form=form
+    )
+
+@app.route('/Admin/EditarMenu/beer/<product>', methods=['GET', 'POST'])
+@login_required
+def edit_beer(product):
+    beer = Beers.query.filter_by(product=product).first_or_404()
+    # beer_copy = beer
+    form = EditBeerForm()
+    # if get
+    if form.validate_on_submit():
+
+        beer.product = form.product.data
+        beer.description = form.description.data
+        beer.price = form.price.data
+        beer.available = form.available.data
+
+        db.session.commit()
+        return render_template(
+            'messages.html', 
+            message=f"Beer name has been changed to {beer.product}"
+            )
+    # if GET
+    return render_template(
+        "edit_product.html", 
+        product=beer,
         form=form
     )

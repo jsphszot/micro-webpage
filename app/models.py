@@ -82,18 +82,5 @@ class Pizzas(db.Model):
     def __repr__(self):
         return f'<Pizzas {self.product}>'
 
-    # BEERS
-        # "name": "NEGRA STOUT",
-        # "description": "nuestra cl&aacute;sica cerveza negra.",
-        # "alcohol": "5,8",
-        # "price": "$3.500",
-        # "mls": 470,
-        # "available": "Y"
-
-    # PIZZAS
-        # "name": "TAI MAN&Iacute;-&Aacute;TICO",
-        # "description": "inspiraci&oacute;n tailandesa: salsa de maní + gengibre + ajo + merk&eacute;n + mozzarella + queso azul + longanicilla.",
-        # "price": "$14.500",
-        # "available": "Y"
 
     

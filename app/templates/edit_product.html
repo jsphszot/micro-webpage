@@ -6,13 +6,51 @@
             Editando: {{ product.product }}
         </h1>
 
-        <form action="" method="post">
+        <br>
+        <br>
 
+        <form action="" method="post">
             {{ form.hidden_tag() }}
-            <br>
-            <br>
-            <b>{{ form.product.label }}:</b> {{ form.product() }}
-            <br>
+            
+            <p>
+                <b>{{ form.product.label }}:</b> 
+                <br>
+                {{ form.product(value=product.product) }}
+                <br><br>
+                
+                <b>{{  form.description.label }}</b>
+                <br>
+                <textarea name="description" id="description" cols="50" rows="4">{{ product.description | safe }}</textarea>
+                
+                {# {{  form.description(cols=50, rows=4, body=product.description) }} #}
+                <br>
+        
+                {# for Beer elements #}
+                {% if form.alcohol %}
+
+                    <b>{{  form.alcohol.label }}</b>
+                    <br>
+                    text
+                    {{  form.alcohol(size=25, value=product.alcohol) }}
+                    <br>
+                    
+                    <b>{{  form.mls.label }}</b>
+                    <br>
+                    {{  form.mls(size=25, value=product.mls) }}
+                    <br>
+
+                {% endif %}
+        
+                <b>{{  form.price.label }}</b>
+                <br>
+                {{  form.price(size=25, value=product.price) }}
+                <br>
+                <br>
+                {{  form.available(checked=product.available) }}
+                <b>{{  form.available.label }}</b>
+                <br>
+                <br>
+            </p>
             <p>
                 {{  form.submit() }}<br>
             </p>
