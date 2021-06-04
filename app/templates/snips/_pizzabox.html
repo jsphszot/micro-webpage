@@ -6,18 +6,15 @@
         <div class='menu-item'>
             <b class='colored-menu'>{{ pizza.product | safe }}</b>
             {# 
-                <b> {{ pizza.description | safe }} <i> {{ "${:,}".format(pizza.price).replace(',', '.') | safe }} </i> </b> 
-                #}
                 <b> {{ pizza.description | safe }} <i> {{ pizza.price | safe }} </i> </b>
+                #}
+                <b> {{ pizza.description | safe }} <i> {{ "${:,}".format(pizza.price).replace(',', '.') | safe }} </i> </b> 
             
             {% if current_user.is_anonymous %} {# true when not logged in #}
             {# nothing #}
             {% else %}
-
-            {{ pizza.available | safe }}
-            
-            <a href="{{ url_for('edit_pizza', product=pizza.product) }}">edit</a>
-
+                <input type="checkbox" name="" id="" {% if pizza.available %} checked {%endif%}>
+                <a href="{{ url_for('edit_pizza', product=pizza.product) }}">edit</a>
             {% endif %}
             
             <br><br>
