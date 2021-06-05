@@ -22,7 +22,7 @@
 
             {{ beer.available | safe }}
 
-            <a href="{{ url_for('edit_beer', product=beer.product) }}">edit</a>
+            <a href="{{ url_for('edit_beer', id=beer.id) }}">edit</a>
 
             {% endif %}
 

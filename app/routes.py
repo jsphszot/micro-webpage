@@ -193,10 +193,10 @@ def check_if_change(old, new):
     value = new if (new != old) else old 
     return value
 
-@app.route('/Admin/EditarMenu/pizza/<product>', methods=['GET', 'POST'])
+@app.route('/Admin/EditarMenu/pizza/<id>', methods=['GET', 'POST'])
 @login_required
-def edit_pizza(product):
-    pizza = Pizzas.query.filter_by(product=product).first_or_404()
+def edit_pizza(id):
+    pizza = Pizzas.query.filter_by(id=id).first_or_404()
     # pizza_copy = pizza
     form = EditPizzaForm()
     # if get
@@ -208,10 +208,11 @@ def edit_pizza(product):
         pizza.available = form.available.data
 
         db.session.commit()
-        return render_template(
-            'messages.html', 
-            message=f"Pizza name has been changed to {pizza.product}"
-            )
+        return redirect(url_for('edit_menu'))
+        # return render_template(
+        #     'messages.html', 
+        #     message=f"Pizza name has been changed to {pizza.product}"
+        #     )
     # if GET
     return render_template(
         "edit_product.html", 
@@ -219,10 +220,10 @@ def edit_pizza(product):
         form=form
     )
 
-@app.route('/Admin/EditarMenu/beer/<product>', methods=['GET', 'POST'])
+@app.route('/Admin/EditarMenu/beer/<id>', methods=['GET', 'POST'])
 @login_required
-def edit_beer(product):
-    beer = Beers.query.filter_by(product=product).first_or_404()
+def edit_beer(id):
+    beer = Beers.query.filter_by(id=id).first_or_404()
     # beer_copy = beer
     form = EditBeerForm()
     # if get

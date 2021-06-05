@@ -14,7 +14,7 @@
             {# nothing #}
             {% else %}
                 <input type="checkbox" name="" id="" {% if pizza.available %} checked {%endif%}>
-                <a href="{{ url_for('edit_pizza', product=pizza.product) }}">edit</a>
+                <a href="{{ url_for('edit_pizza', id=pizza.id) }}">edit</a>
             {% endif %}
             
             <br><br>

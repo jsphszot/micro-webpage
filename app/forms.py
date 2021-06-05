@@ -49,8 +49,8 @@ class RegistrationForm(FlaskForm):
             raise ValidationError('Please use a different email address.')
 
 class NewPizzaForm(FlaskForm):
-    product = StringField('Nombre de Pizza', validators=[InputRequired(), Length(min=0, max=Pizzas.len_product)])
-    description = TextAreaField('Descripción de la Pizza', validators=[DataRequired(), Length(min=0, max=Pizzas.len_description)])
+    product = StringField('Nombre de Pizza', validators=[InputRequired(), Length(min=1, max=Pizzas.len_product)])
+    description = TextAreaField('Descripción de la Pizza', validators=[DataRequired(), Length(min=1, max=Pizzas.len_description)])
     price = IntegerField('Precio CLP sin separador de miles', validators=[DataRequired(), NumberRange(min=0, message="Debe ser mayor a 0")])
     available = BooleanField('marcar como Disponible', default=True)
     submit = SubmitField('Crear Pizza')
@@ -64,8 +64,8 @@ class NewPizzaForm(FlaskForm):
             raise ValidationError('Este nombre de Pizza ya existe - Usa otro.')
 
 class NewBeerForm(FlaskForm):
-    product = StringField('Nombre de Cerveza', validators=[DataRequired(), Length(min=0, max=Beers.len_product)])
-    description = TextAreaField('Descripción de la Cerveza', validators=[DataRequired(), Length(min=0, max=Beers.len_description)])
+    product = StringField('Nombre de Cerveza', validators=[DataRequired(), Length(min=1, max=Beers.len_product)])
+    description = TextAreaField('Descripción de la Cerveza', validators=[DataRequired(), Length(min=1, max=Beers.len_description)])
     alcohol = DecimalField('grados de alcohol (usa "." para decimal)', validators=[DataRequired(), NumberRange(min=0, message="Debe ser mayor a 0")], places=1)
     mls = IntegerField('mls (sin separador de miles)', validators=[DataRequired(), NumberRange(min=0, message="Debe ser mayor a 0")])
     price = IntegerField('Precio CLP (sin separador de miles)', validators=[DataRequired(), NumberRange(min=0, message="Debe ser mayor a 0")])
@@ -79,11 +79,11 @@ class NewBeerForm(FlaskForm):
             raise ValidationError('Este nombre de Cerveza ya existe - Usa otro.')
 
 class EditBeerForm(FlaskForm):
-    product = StringField('Nuevo Nombre', validators=[Length(min=0, max=Beers.len_product)])
-    description = TextAreaField('Descripción', validators=[Length(min=0, max=Beers.len_description)])
-    alcohol = DecimalField('grados de alcohol (usa "." para decimal)', validators=[NumberRange(min=0, message="Debe ser mayor a 0")], places=1)
-    mls = IntegerField('mls (sin separador de miles)', validators=[NumberRange(min=0, message="Debe ser mayor a 0")])
-    price = IntegerField('Precio CLP (sin separador de miles)', validators=[NumberRange(min=0, message="Debe ser mayor a 0")])
+    product = StringField('Nuevo Nombre', validators=[Optional(), Length(min=1, max=Beers.len_product)])
+    description = TextAreaField('Descripción', validators=[Optional(), Length(min=1, max=Beers.len_description)])
+    alcohol = DecimalField('grados de alcohol (usa "." para decimal)', validators=[Optional(), NumberRange(min=0, message="Debe ser mayor a 0")], places=1)
+    mls = IntegerField('mls (sin separador de miles)', validators=[Optional(), NumberRange(min=0, message="Debe ser mayor a 0")])
+    price = IntegerField('Precio CLP (sin separador de miles)', validators=[Optional(), NumberRange(min=0, message="Debe ser mayor a 0")])
     available = BooleanField('marcar como Disponible', validators=[Optional()])
     submit = SubmitField('Editar')
 
@@ -94,7 +94,7 @@ class EditBeerForm(FlaskForm):
             raise ValidationError('Este nombre de Cerveza ya existe - Usa otro.')
 
 class EditPizzaForm(FlaskForm):
-    product = StringField('Nuevo Nombre', validators=[Length(min=0, max=Beers.len_product)])
+    product = StringField('Nuevo Nombre', validators=[Length(min=1, max=Beers.len_product)])
     description = TextAreaField('Descripción', validators=[Length(min=0, max=Beers.len_description)])
     price = IntegerField('Precio CLP (sin separador de miles)', validators=[NumberRange(min=0, message="Debe ser mayor a 0")])
     available = BooleanField('marcar como Disponible', validators=[Optional()])
