@@ -4,7 +4,6 @@ from flask import (
     redirect, 
     url_for, 
     request,
-    make_response,
     )
 from app import app, db
 from app.forms import (
@@ -128,13 +127,6 @@ def register():
 @login_required
 def admin():
     return render_template('admin_home.html', title="SZOT Admin")
-
-# @app.errorhandler(404)
-# def not_found():
-#     return make_response(
-#         render_template("404.html"), 
-#         404
-#     )
 
 @app.route('/Admin/AgregarPizza',  methods=['GET', 'POST'])
 @login_required
