@@ -7,7 +7,6 @@
         </h1>
 
         <br>
-        <br>
 
         <form action="" method="post">
             {{ form.hidden_tag() }}
@@ -16,26 +15,44 @@
                 <b>{{ form.product.label }}:</b> 
                 <br>
                 {{ form.product(value=product.product) }}
-                <br><br>
+                {% for error in form.product.errors %}
+                    <br>
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+                <br>
+                <br>
                 
                 <b>{{  form.description.label }}</b>
                 <br>
                 <textarea name="description" id="description" cols="50" rows="4">{{ product.description | safe }}</textarea>
-                
-                {# {{  form.description(cols=50, rows=4, body=product.description) }} #}
+                {% for error in form.description.errors %}
+                    <br>
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
                 <br>
-        
+                <br>
+
                 {# for Beer elements #}
                 {% if form.alcohol %}
 
                     <b>{{  form.alcohol.label }}</b>
                     <br>
                     {{  form.alcohol(size=25, value=product.alcohol) }}
+                    {% for error in form.alcohol.errors %}
+                        <br>
+                        <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                    <br>
                     <br>
                     
                     <b>{{  form.mls.label }}</b>
                     <br>
                     {{  form.mls(size=25, value=product.mls) }}
+                    {% for error in form.mls.errors %}
+                        <br>
+                        <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                    <br>
                     <br>
 
                 {% endif %}
@@ -44,6 +61,10 @@
                 <br>
                 {{  form.price(size=25, value=product.price) }}
                 <br>
+                {% for error in form.price.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    <br>
+                {% endfor %}
                 <br>
                 {{  form.available(checked=product.available) }}
                 <b>{{  form.available.label }}</b>

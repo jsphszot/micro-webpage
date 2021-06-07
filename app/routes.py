@@ -235,10 +235,11 @@ def edit_beer(id):
         beer.available = form.available.data
 
         db.session.commit()
-        return render_template(
-            'messages.html', 
-            message=f"Beer name has been changed to {beer.product}"
-            )
+        return redirect(url_for('edit_menu'))
+        # return render_template(
+        #     'messages.html', 
+        #     message=f"Beer name has been changed to {beer.product}"
+        #     )
     # if GET
     return render_template(
         "edit_product.html", 

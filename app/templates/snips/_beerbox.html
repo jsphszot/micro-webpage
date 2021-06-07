@@ -20,7 +20,7 @@
             {# nothing #}
             {% else %}
 
-            {{ beer.available | safe }}
+            <input type="checkbox" name="" id="" {% if beer.available %} checked {%endif%}>
 
             <a href="{{ url_for('edit_beer', id=beer.id) }}">edit</a>
 
