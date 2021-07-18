@@ -6,3 +6,4 @@ Setting up flask microservice wepbage for family-owned brewery/brewpub, allowing
 Possibly integrate with shopify BuyButton.js, depending on flexibility gained.
 
 TODO: setup mongoDB locally instead of SQLAlchemy.
+TODO: Finish the job
